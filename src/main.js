@@ -1,6 +1,6 @@
-// $(document).ready(function() {
-//   console.log('test');
-// });
+$(document).ready(function() {
+  console.log('test');
+});
 //
 // function sum(num1, num2) {
 //   return new Promise(function(resolve, reject) {
