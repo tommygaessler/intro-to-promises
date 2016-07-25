@@ -45,15 +45,27 @@ ajaxPromise('http://pokeapi.co/api/v2/pokemon/5')
 .then(function(link) {
 
   // console.log(link);
+  var pokemons = link.pokemon;
+  // return ajaxPromise(pokemons);
 
-  var eachLoop = link.pokemon;
-
-  eachLoop.forEach(myFunction)
-
-  function myFunction(obj)
-  {
-    console.log(obj.pokemon.name);
-  }
+  // var eachLoop = link.pokemon;
+  //
+  // eachLoop.forEach(myFunction)
+  //
+  // function myFunction(obj)
+  // {
+  //   console.log(obj.pokemon.name);
+  //   $('body').append('<div>' + obj.pokemon.name + '</div>')
+  //
+    var random = pokemons[Math.floor(Math.random() * pokemons.length)];
+    console.log(random);
+    return ajaxPromise(random.pokemon.url);
+  // }
+}).then(function(pokemon) {
+  $('body').append('<img src="'+ pokemon.sprites.front_default +'">')
+})
+.catch(function(error) {
+  alert('alert');
 });
 
 // promises are a list of things to run in order, good for api calls
